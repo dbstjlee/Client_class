@@ -13,7 +13,7 @@ public class MultiThreadClient {
 		System.out.println("### 클라이언트 실행 ###");
 
 		try {
-			Socket socket = new Socket("localhost", 5001); // "localhost" => IP 주소값 입력하기
+			Socket socket = new Socket("192.168.0.48", 5000); // "localhost" => IP 주소값 입력하기
 			System.out.println("*** connected to the Server ***");
 
 			// 1. 서버의 데이터를 받을 입력 스트림 필요

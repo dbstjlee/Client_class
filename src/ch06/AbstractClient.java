@@ -34,7 +34,6 @@ public abstract class AbstractClient {
 		} finally {
 			cleanup(); // 소켓 자원 닫음
 		}
-
 	}
 
 	protected abstract void connectToServer() throws IOException; 
@@ -47,7 +46,6 @@ public abstract class AbstractClient {
 	}
 
 	private void startService() throws IOException {
-
 		Thread readThread = createReadThread(); // 데이터 읽는 스레드를 readThread에 담음
 		Thread writeThread = createWriteThread(); // 데이터 출력하는 스레드를 writeThread에 담음
 
@@ -57,7 +55,7 @@ public abstract class AbstractClient {
 
 		// 메인 스레드 대기 처리
 		try {
-			readThread.join();// readThread가 다 돌아갈때까지 메인 스레드 대기?
+			readThread.join();// readThread가 다 돌아갈때까지 메인 스레드 대기
 			writeThread.join();
 		} catch (InterruptedException e) {
 		}
@@ -66,7 +64,6 @@ public abstract class AbstractClient {
 	// 데이터 출력하는 스레드
 	private Thread createWriteThread() {
 		return new Thread(() -> {
-
 			try {
 				String msg;
 				while ((msg = keyboardReader.readLine()) != null) { // 키보드 입력 값을 한 줄로 읽어라
